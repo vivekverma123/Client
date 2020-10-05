@@ -34,41 +34,14 @@
         app:layout_constraintTop_toBottomOf="@+id/flatno"
         app:layout_constraintVertical_bias="0.056" />
 
-    <EditText
-        android:id="@+id/otp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="OTP"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mobno"
-        app:layout_constraintVertical_bias="0.073" />
-
-    <Button
-        android:id="@+id/generate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Generate OTP"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.309"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otp"
-        app:layout_constraintVertical_bias="0.155" />
-
     <Button
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LogIN"
+        android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.733"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/otp"
-        app:layout_constraintVertical_bias="0.155" />
+        app:layout_constraintTop_toBottomOf="@+id/mobno" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
