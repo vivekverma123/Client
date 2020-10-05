@@ -67,14 +67,12 @@ public class MainActivity2 extends AppCompatActivity {
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
                                 EditText e1 = alert_layout.findViewById(R.id.amt_1);
+                                EditText e2 = alert_layout.findViewById(R.id.remark_client);
 
                                 int x = Integer.parseInt(e1.getText().toString());
+                                String remark = e2.getText().toString();
 
-                                if(snapshot.child("Requests").child(FlatInfo.flatNo).exists())
-                                {
-                                    Toast.makeText(MainActivity2.this,"You already have a pending request",Toast.LENGTH_SHORT).show();
-                                }
-                                else
+
                                 {
                                     String id = snapshot.child("CurrentMonth").getValue(String.class);
                                     Month m1 = snapshot.child("Months").child(id).getValue(Month.class);
@@ -93,9 +91,10 @@ public class MainActivity2 extends AppCompatActivity {
                                     }
                                     else
                                     {
-                                        Request r1 = new Request(FlatInfo.flatNo,x);
+                                        Request r1 = new Request(FlatInfo.flatNo,x,remark,"",false);
                                         DatabaseReference d1 = FirebaseDatabase.getInstance().getReference();
-                                        d1.child("Requests").child(FlatInfo.flatNo).setValue(r1);
+                                        String s1 = d1.child("Requests").push().getKey();
+                                        d1.child("Requests").child(s1).setValue(r1);
                                         Toast.makeText(MainActivity2.this,"Request filed successfully",Toast.LENGTH_SHORT).show();
                                     }
                                 }
