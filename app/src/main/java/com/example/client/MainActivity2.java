@@ -91,9 +91,10 @@ public class MainActivity2 extends AppCompatActivity {
                                     }
                                     else
                                     {
-                                        Request r1 = new Request(FlatInfo.flatNo,x,remark,"",false);
+
                                         DatabaseReference d1 = FirebaseDatabase.getInstance().getReference();
                                         String s1 = d1.child("Requests").push().getKey();
+                                        Request r1 = new Request(FlatInfo.flatNo,x,remark,"",false,s1);
                                         d1.child("Requests").child(s1).setValue(r1);
                                         Toast.makeText(MainActivity2.this,"Request filed successfully",Toast.LENGTH_SHORT).show();
                                     }
