@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -41,6 +42,22 @@ public class MainActivity2 extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 showDialogBox1(view);
+            }
+        });
+
+        Button b2 = findViewById(R.id.view_soc);
+        b2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity2.this,ViewMonths.class));
+            }
+        });
+
+        Button b3 = findViewById(R.id.pay_advan);
+        b3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialogBox2(view);
             }
         });
 
@@ -122,5 +139,62 @@ public class MainActivity2 extends AppCompatActivity {
         AlertDialog dialog = alert.create();
         dialog.show();
 
+    }
+
+    public void showDialogBox2(View view)
+    {
+        final View alert_layout = getLayoutInflater().inflate(R.layout.req_dialog,null);
+
+        final AlertDialog.Builder alert = new AlertDialog.Builder(context);
+        alert.setTitle("File Request");
+        alert.setView(alert_layout);
+
+        alert.setPositiveButton("Request", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+
+                        DatabaseReference d1 = FirebaseDatabase.getInstance().getReference();
+
+                        d1.addListenerForSingleValueEvent(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+
+                                EditText e1 = alert_layout.findViewById(R.id.amt_1);
+                                EditText e2 = alert_layout.findViewById(R.id.remark_client);
+
+                                int x = Integer.parseInt(e1.getText().toString());
+                                String remark = e2.getText().toString();
+                                String id = snapshot.child("CurrentMonth").getValue(String.class);
+
+                                DatabaseReference d1 = FirebaseDatabase.getInstance().getReference();
+                                String s1 = d1.child("Requests").push().getKey();
+                                Request r1 = new Request(FlatInfo.flatNo,x,remark,"",false,s1);
+                                d1.child("AdvancePayRequests").child(s1).setValue(r1);
+                                Toast.makeText(MainActivity2.this,"Request filed successfully",Toast.LENGTH_SHORT).show();
+                            }
+
+
+
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+
+                            }
+                        });
+
+                    }
+                }
+        );
+
+        alert.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+
+                dialogInterface.dismiss();
+            }
+        });
+
+        AlertDialog dialog = alert.create();
+        dialog.show();
     }
 }
