@@ -25,8 +25,6 @@ import com.google.firebase.database.ValueEventListener;
 
 public class MainActivity2 extends AppCompatActivity {
 
-
-
     Context context;
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +32,6 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
 
         context = MainActivity2.this;
-
-        Toast.makeText(MainActivity2.this, "" + FlatInfo.flatNo,Toast.LENGTH_SHORT).show();
 
         Button b1 = findViewById(R.id.reqmain);
         b1.setOnClickListener(new View.OnClickListener() {
@@ -57,7 +53,29 @@ public class MainActivity2 extends AppCompatActivity {
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDialogBox2(view);
+                try {
+                    showDialogBox2(view);
+                }
+                catch(Exception e1)
+                {
+                    Toast.makeText(MainActivity2.this,e1.toString(),Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        Button b4 = findViewById(R.id.view_main);
+        b4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity2.this,ViewMain.class));
+            }
+        });
+
+        Button b5 = findViewById(R.id.pay_due);
+        b5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity2.this,DueActivity.class));
             }
         });
 
@@ -83,38 +101,39 @@ public class MainActivity2 extends AppCompatActivity {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
-                                EditText e1 = alert_layout.findViewById(R.id.amt_1);
-                                EditText e2 = alert_layout.findViewById(R.id.remark_client);
+                                try {
 
-                                int x = Integer.parseInt(e1.getText().toString());
-                                String remark = e2.getText().toString();
+                                    EditText e1 = alert_layout.findViewById(R.id.amt_1);
+                                    EditText e2 = alert_layout.findViewById(R.id.remark_client);
+
+                                    int x = Integer.parseInt(e1.getText().toString());
+                                    String remark = e2.getText().toString();
 
 
-                                {
-                                    String id = snapshot.child("CurrentMonth").getValue(String.class);
-                                    Month m1 = snapshot.child("Months").child(id).getValue(Month.class);
-                                    int amt1 = m1.getContr();
+                                    {
+                                        String id = snapshot.child("CurrentMonth").getValue(String.class);
+                                        Month m1 = snapshot.child("Months").child(id).getValue(Month.class);
+                                        int amt1 = m1.getContr();
 
 
                                         Maintenance m2 = snapshot.child("MaintenanceRecord").child(id).child(FlatInfo.flatNo).getValue(Maintenance.class);
                                         int amt2 = m2.getAmt_paid();
 
 
-
-
-                                    if(amt2 + x > amt1)
-                                    {
-                                        Toast.makeText(MainActivity2.this,"You cannot pay more than the limit set by the admin, if already paid enter the amount of maintenance remaining only and file advanced/due request for the leftover amount.",Toast.LENGTH_SHORT).show();
+                                        if (amt2 + x > amt1) {
+                                            Toast.makeText(MainActivity2.this, "You cannot pay more than the limit set by the admin, if already paid enter the amount of maintenance remaining only and file advanced/due request for the leftover amount.", Toast.LENGTH_SHORT).show();
+                                        } else {
+                                            DatabaseReference d1 = FirebaseDatabase.getInstance().getReference();
+                                            String s1 = d1.child("Requests").push().getKey();
+                                            Request r1 = new Request(FlatInfo.flatNo, x, remark, "", false, s1, id);
+                                            d1.child("Requests").child(s1).setValue(r1);
+                                            Toast.makeText(MainActivity2.this, "Request filed successfully", Toast.LENGTH_SHORT).show();
+                                        }
                                     }
-                                    else
-                                    {
-
-                                        DatabaseReference d1 = FirebaseDatabase.getInstance().getReference();
-                                        String s1 = d1.child("Requests").push().getKey();
-                                        Request r1 = new Request(FlatInfo.flatNo,x,remark,"",false,s1);
-                                        d1.child("Requests").child(s1).setValue(r1);
-                                        Toast.makeText(MainActivity2.this,"Request filed successfully",Toast.LENGTH_SHORT).show();
-                                    }
+                                }
+                                catch(Exception e1)
+                                {
+                                    Toast.makeText(context,e1.toString(),Toast.LENGTH_SHORT).show();
                                 }
                             }
 
@@ -169,7 +188,7 @@ public class MainActivity2 extends AppCompatActivity {
 
                                 DatabaseReference d1 = FirebaseDatabase.getInstance().getReference();
                                 String s1 = d1.child("Requests").push().getKey();
-                                Request r1 = new Request(FlatInfo.flatNo,x,remark,"",false,s1);
+                                Request r1 = new Request(FlatInfo.flatNo,x,remark,"",false,s1,id);
                                 d1.child("AdvancePayRequests").child(s1).setValue(r1);
                                 Toast.makeText(MainActivity2.this,"Request filed successfully",Toast.LENGTH_SHORT).show();
                             }

@@ -9,6 +9,7 @@ import android.provider.ContactsContract;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.example.model.FlatInfo;
@@ -35,6 +36,8 @@ import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
+    private ProgressBar spinner;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,11 +45,14 @@ public class MainActivity extends AppCompatActivity {
 
 
         Button b1 = findViewById(R.id.login);
+        spinner = findViewById(R.id.progressBar);
+        spinner.setVisibility(View.GONE);
 
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
+                spinner.setVisibility(View.VISIBLE);
                 DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
                 myRef.addListenerForSingleValueEvent(new ValueEventListener() {
                     @Override
@@ -63,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
                             String s3 = snapshot.child("FlatOwners").child(s1).child("mobNo").getValue(String.class);
                             if(s3.equals(s2))
                             {
+                                spinner.setVisibility(View.GONE);
                                 Toast.makeText(MainActivity.this,"Login Successful",Toast.LENGTH_SHORT).show();
                                 Intent i1 = new Intent(MainActivity.this,MainActivity2.class);
                                 startActivity(i1);
@@ -70,11 +77,13 @@ public class MainActivity extends AppCompatActivity {
                             }
                             else
                             {
+                                spinner.setVisibility(View.GONE);
                                 Toast.makeText(MainActivity.this,"Invalid Phone Number",Toast.LENGTH_SHORT).show();
                             }
                         }
                         else
                         {
+                            spinner.setVisibility(View.GONE);
                             Toast.makeText(MainActivity.this,"Flat number not registered, contact the admin",Toast.LENGTH_SHORT).show();
                         }
                     }

@@ -42,4 +42,28 @@
         app:layout_constraintTop_toBottomOf="@+id/view_soc"
         app:layout_constraintVertical_bias="0.053" />
 
+    <Button
+        android:id="@+id/view_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="view maintenance record"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pay_advan"
+        app:layout_constraintVertical_bias="0.084" />
+
+    <Button
+        android:id="@+id/pay_due"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="view/pay dues"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/view_main"
+        app:layout_constraintVertical_bias="0.093" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
