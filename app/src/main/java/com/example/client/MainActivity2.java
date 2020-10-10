@@ -180,6 +180,20 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
+        FrameLayout b6 = findViewById(R.id.frame6);
+        b6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    startActivity(new Intent(MainActivity2.this, ViewTransactionsActivity.class));
+                }
+                catch(Exception e1)
+                {
+                    Toast.makeText(MainActivity2.this,e1.toString(),Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
     }
 
     public void showDialogBox1(View view)

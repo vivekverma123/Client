@@ -17,20 +17,20 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.example.model.Transaction;
 
-import org.w3c.dom.Text;
 
 import java.util.ArrayList;
 
-public class UserAdapter4 extends ArrayAdapter<Maintenance>
+public class UserAdapter5 extends ArrayAdapter<Transaction>
 {
 
     Context context;
     DataSnapshot snapshot;
 
-    public UserAdapter4(@NonNull Context context, ArrayList<Maintenance> maintenance)
+    public UserAdapter5(@NonNull Context context, ArrayList<Transaction> transaction)
     {
-        super(context, 0,maintenance);
+        super(context, 0,transaction);
         this.context = context;
         refresh();
 
@@ -39,33 +39,34 @@ public class UserAdapter4 extends ArrayAdapter<Maintenance>
     public View getView(int position, View convertView, ViewGroup parent) {
         // Get the data item for this position
         try{
-        final Maintenance m1 = getItem(position);
-        // Check if an existing view is being reused, otherwise inflate the view
-        if (convertView == null) {
-            convertView = LayoutInflater.from(getContext()).inflate(R.layout.main_list_item, parent, false);
-        }
+            final Transaction transaction = getItem(position);
+            // Check if an existing view is being reused, otherwise inflate the view
+            if (convertView == null) {
+                convertView = LayoutInflater.from(getContext()).inflate(R.layout.transaction_item, parent, false);
+            }
 
-        TextView t1 = convertView.findViewById(R.id.textView16);
-        TextView t2 = convertView.findViewById(R.id.textView17);
-        TextView t3 = convertView.findViewById(R.id.textView18);
-        TextView t4 = convertView.findViewById(R.id.textView19);
+            TextView t1 = convertView.findViewById(R.id.textView10);
+            TextView t2 = convertView.findViewById(R.id.textView11);
+            TextView t3 = convertView.findViewById(R.id.textView12);
 
-        t1.setText(m1.getId());
-        t2.setText("₹" + m1.getAmt_paid());
-        t3.setText("₹" + m1.getContr() + "");
+            t1.setText(transaction.getDate());
+            String particular;
+            t3.setText(transaction.getAmount() + "");
 
-        if(m1.getStatus()==0)
-        {
-            t4.setText("Not Paid");
-        }
-        else if(m1.getStatus()==1)
-        {
-            t4.setText("Partially Paid");
-        }
-        else
-        {
-            t4.setText("Paid");
-        }
+            if(transaction.getType()==0)
+            {
+                particular = "For Maintenance";
+            }
+            else if(transaction.getType()==1)
+            {
+                particular = "For Advance";
+            }
+            else
+            {
+                particular = "Cleared Previous Due";
+            }
+
+            t2.setText(particular);
 
             if(position%2==0) {
                 convertView.setBackgroundColor(Color.parseColor("#C0D6E4"));
@@ -75,7 +76,7 @@ public class UserAdapter4 extends ArrayAdapter<Maintenance>
                 convertView.setBackgroundColor(Color.WHITE);
             }
 
-        return convertView;
+            return convertView;
 
         }
         catch(Exception e1)
@@ -108,3 +109,4 @@ public class UserAdapter4 extends ArrayAdapter<Maintenance>
         this.snapshot = snapshot;
     }
 }
+
