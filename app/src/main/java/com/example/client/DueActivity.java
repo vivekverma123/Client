@@ -71,15 +71,15 @@ public class DueActivity extends AppCompatActivity {
 
                 if(Calendar.isLeapYear(prev_year))
                 {
-                    date = monthName[prev_month] + ", " + arr2[prev_month] + " " + prev_year;
+                    date = monthName[prev_month] + " " + arr2[prev_month] + ", " + prev_year;
                 }
                 else
                 {
-                    date = monthName[prev_month] + ", " + arr[prev_month] + " " + prev_year;
+                    date = monthName[prev_month] + " " + arr[prev_month] + ", " + prev_year;
                 }
                 TextView t1 = findViewById(R.id.statement);
                 int amt = snapshot.child("TotalDue").child(FlatInfo.flatNo).getValue(Integer.class);
-                t1.setText("Total amount due in the society account for your Flat Number: " + FlatInfo.flatNo + " till " + date + " is ₹ " + amt );
+                t1.setText("Total amount due in the society account for your Flat Number " + FlatInfo.flatNo + " till " + date + " is ₹ " + amt );
 
             }
 

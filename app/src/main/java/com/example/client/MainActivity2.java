@@ -1,6 +1,7 @@
 package com.example.client;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,17 +12,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.model.FlatInfo;
+import com.example.model.Helper;
 import com.example.model.Maintenance;
 import com.example.model.Month;
 import com.example.model.Request;
+import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -33,7 +41,96 @@ public class MainActivity2 extends AppCompatActivity {
 
         context = MainActivity2.this;
 
-        Button b1 = findViewById(R.id.reqmain);
+        DatabaseReference d1 = FirebaseDatabase.getInstance().getReference();
+        d1.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (dataSnapshot != null) {
+                    TextView t1 = findViewById(R.id.textView9);
+                    TextView t2 = findViewById(R.id.textView10);
+                    TextView t3 = findViewById((R.id.textView11));
+                    TextView t4 = findViewById((R.id.textView12));
+                    TextView t5 = findViewById((R.id.textView13));
+                    TextView t6 = findViewById((R.id.textView14));
+
+                    String date = Helper.getLastDate();
+
+                    SimpleDateFormat simpleDateFormat = new SimpleDateFormat("MMMM dd, YYYY");
+                    Date date1 = new Date();
+                    String curr_date = simpleDateFormat.format(date1);
+
+                    if (dataSnapshot.child("Name").exists() == false) {
+                        t1.setText("Name not set");
+                    } else {
+                        t1.setText(dataSnapshot.child("Name").getValue(String.class));
+                    }
+
+                    if (dataSnapshot.child("Address").exists() == false) {
+                        t2.setText("Address not set");
+                    } else {
+                        t2.setText(dataSnapshot.child("Address").getValue(String.class));
+                    }
+
+                    String s1 = dataSnapshot.child("FlatOwners").child(FlatInfo.flatNo).child("name").getValue(String.class);
+                    TextView t7 = findViewById(R.id.textView15);
+                    t7.setText("Welcome " + s1);
+
+                    int amt1 = 0;
+                    int amt2 = 0;
+
+                    amt1 = dataSnapshot.child("AdvancedAmount").child(FlatInfo.flatNo).getValue(Integer.class);
+                    amt2 = dataSnapshot.child("TotalDue").child(FlatInfo.flatNo).getValue(Integer.class);
+
+                    String id = dataSnapshot.child("CurrentMonth").getValue(String.class);
+                    Maintenance m1 = dataSnapshot.child("MaintenanceRecord").child(id).child(FlatInfo.flatNo).getValue(Maintenance.class);
+
+                    amt2 += m1.getContr() - m1.getAmt_paid();
+
+                    t3.setText("Your Total due as on " + curr_date + ": ");
+                    t5.setText("Your Advanced Amount held with Society as on  " + curr_date + ": ");
+
+                    t6.setText("₹" + amt1);
+                    t4.setText("₹" + amt2);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
+
+        d1 = FirebaseDatabase.getInstance().getReference();
+        d1.addChildEventListener(new ChildEventListener() {
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+
+        //Button b1 = findViewById(R.id.reqmain);
+        FrameLayout b1 = findViewById(R.id.frame1);
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -41,7 +138,8 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-        Button b2 = findViewById(R.id.view_soc);
+        //Button b2 = findViewById(R.id.view_soc);
+        FrameLayout b2 = findViewById(R.id.frame5);
         b2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -49,7 +147,8 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-        Button b3 = findViewById(R.id.pay_advan);
+        //Button b3 = findViewById(R.id.pay_advan);
+        FrameLayout b3 = findViewById(R.id.frame2);
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,7 +162,8 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-        Button b4 = findViewById(R.id.view_main);
+        //Button b4 = findViewById(R.id.view_main);
+        FrameLayout b4 = findViewById(R.id.frame4);
         b4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -71,7 +171,8 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
-        Button b5 = findViewById(R.id.pay_due);
+        //Button b5 = findViewById(R.id.pay_due);
+        FrameLayout b5 = findViewById(R.id.frame3);
         b5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

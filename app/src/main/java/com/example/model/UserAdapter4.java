@@ -1,6 +1,7 @@
 package com.example.model;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,8 +51,8 @@ public class UserAdapter4 extends ArrayAdapter<Maintenance>
         TextView t4 = convertView.findViewById(R.id.textView19);
 
         t1.setText(m1.getId());
-        t2.setText(m1.getAmt_paid() + "");
-        t3.setText(m1.getContr() + "");
+        t2.setText("₹" + m1.getAmt_paid());
+        t3.setText("₹" + m1.getContr() + "");
 
         if(m1.getStatus()==0)
         {
@@ -66,7 +67,9 @@ public class UserAdapter4 extends ArrayAdapter<Maintenance>
             t4.setText("Paid");
         }
 
-
+            if(position%2==0) {
+                convertView.setBackgroundColor(Color.parseColor("#C0D6E4"));
+            }
         return convertView;
 
         }
@@ -74,6 +77,8 @@ public class UserAdapter4 extends ArrayAdapter<Maintenance>
         {
             Toast.makeText(context,e1.toString(),Toast.LENGTH_SHORT).show();
         }
+
+
 
         return convertView;
     }
