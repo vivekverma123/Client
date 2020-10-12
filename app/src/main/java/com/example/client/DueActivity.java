@@ -48,7 +48,7 @@ public class DueActivity extends AppCompatActivity {
     public void init()
     {
         DatabaseReference d1 = FirebaseDatabase.getInstance().getReference();
-        d1.addListenerForSingleValueEvent(new ValueEventListener() {
+        d1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot)
             {

@@ -161,6 +161,7 @@ public class UploadInvoiceActivity extends AppCompatActivity {
                                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                             progressDialog.dismiss();
                                             Toast.makeText(UploadInvoiceActivity.this, "Request filed successfully.", Toast.LENGTH_SHORT).show();
+                                            back();
                                         }
                                     })
                                     .addOnFailureListener(new OnFailureListener() {
@@ -168,6 +169,7 @@ public class UploadInvoiceActivity extends AppCompatActivity {
                                         public void onFailure(@NonNull Exception e) {
                                             progressDialog.dismiss();
                                             Toast.makeText(UploadInvoiceActivity.this, "Failed " + e.getMessage(), Toast.LENGTH_SHORT).show();
+                                            back();
                                         }
                                     })
                                     .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
@@ -193,5 +195,10 @@ public class UploadInvoiceActivity extends AppCompatActivity {
         {
             Toast.makeText(UploadInvoiceActivity.this,e1.toString(),Toast.LENGTH_SHORT).show();
         }
+    }
+
+    public void back()
+    {
+        super.onBackPressed();
     }
 }

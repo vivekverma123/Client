@@ -5,7 +5,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -13,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UploadInvoiceActivity"></activity>
+        <activity android:name=".ViewInvoice"></activity>
+        <activity android:name=".RequestDetails" />
+        <activity android:name=".ViewAllRequests" />
+        <activity android:name=".UploadInvoiceActivity" />
         <activity android:name=".ViewTransactionsActivity" />
         <activity android:name=".DueActivity" />
         <activity android:name=".ViewMain" />

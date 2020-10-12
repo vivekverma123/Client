@@ -52,7 +52,7 @@ public class UserAdapter4 extends ArrayAdapter<Maintenance>
 
         t1.setText(m1.getId());
         t2.setText("₹" + m1.getAmt_paid());
-        t3.setText("₹" + m1.getContr() + "");
+        t3.setText("₹" + (m1.getContr() - m1.getAmt_paid()));
 
         if(m1.getStatus()==0)
         {

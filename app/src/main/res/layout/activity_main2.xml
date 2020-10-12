@@ -9,7 +9,7 @@
     <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
-        android:layout_height="250dp"
+        android:layout_height="300dp"
         android:layout_margin="10dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,7 +32,7 @@
                 <ImageView
 
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
+                    android:layout_height="50dp"
                     android:background="#FFFFFF"
                     app:srcCompat="@drawable/maintenance_payment"
                     tools:srcCompat="@drawable/maintenance_payment" />
@@ -40,7 +40,7 @@
                 <TextView
 
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="bottom|center"
                     android:background="#FFFFFF"
                     android:gravity="center"
@@ -63,7 +63,7 @@
                 <ImageView
 
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
+                    android:layout_height="50dp"
                     android:background="#FFFFFF"
                     app:srcCompat="@drawable/advance_payment"
                     tools:srcCompat="@drawable/advance_payment" />
@@ -71,7 +71,7 @@
                 <TextView
 
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="bottom|center"
                     android:background="#FFFFFF"
                     android:gravity="center"
@@ -94,7 +94,7 @@
                 <ImageView
 
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
+                    android:layout_height="50dp"
                     android:background="#FFFFFF"
                     app:srcCompat="@drawable/due_payment"
                     tools:srcCompat="@drawable/due_payment" />
@@ -102,7 +102,7 @@
                 <TextView
 
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="bottom|center"
                     android:background="#FFFFFF"
                     android:gravity="center"
@@ -133,20 +133,20 @@
                 <ImageView
 
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
+                    android:layout_height="50dp"
                     android:background="#FFFFFF"
-                    app:srcCompat="@drawable/monthly_record"
-                    tools:srcCompat="@drawable/monthly_record" />
+                    app:srcCompat="@drawable/record"
+                    tools:srcCompat="@drawable/record" />
 
                 <TextView
 
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="bottom|center"
                     android:background="#FFFFFF"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="View Maintenance Record"
+                    android:text="Maintenance Record"
                     android:textColor="#000000"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -164,7 +164,7 @@
                 <ImageView
 
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
+                    android:layout_height="50dp"
                     android:background="#FFFFFF"
                     app:srcCompat="@drawable/monthly_record"
                     tools:srcCompat="@drawable/monthly_record" />
@@ -172,12 +172,12 @@
                 <TextView
 
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="bottom|center"
                     android:background="#FFFFFF"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="View Monthly Society Account"
+                    android:text="Monthly Society Account"
                     android:textColor="#000000"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
@@ -195,28 +195,79 @@
                 <ImageView
 
                     android:layout_width="match_parent"
-                    android:layout_height="65dp"
+                    android:layout_height="50dp"
                     android:background="#FFFFFF"
-                    app:srcCompat="@drawable/monthly_record"
-                    tools:srcCompat="@drawable/monthly_record" />
+                    app:srcCompat="@drawable/transaction"
+                    tools:srcCompat="@drawable/transaction" />
 
                 <TextView
 
                     android:layout_width="match_parent"
-                    android:layout_height="60dp"
+                    android:layout_height="50dp"
                     android:layout_gravity="bottom|center"
                     android:background="#FFFFFF"
                     android:gravity="center"
                     android:padding="5dp"
-                    android:text="View Your Transactions"
+                    android:text="Your Transactions"
                     android:textColor="#000000"
                     android:textColorHint="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    tools:text="View Your Transactions" />
+                    tools:text="Your Transactions" />
 
             </FrameLayout>
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:id="@+id/frame7"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+                <ImageView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:background="#FFFFFF"
+                    app:srcCompat="@drawable/requests"
+                    tools:srcCompat="@drawable/requests" />
+
+                <TextView
+
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom|center"
+                    android:background="#FFFFFF"
+                    android:gravity="center"
+                    android:padding="5dp"
+                    android:text="View All Requests"
+                    android:textColor="#000000"
+                    android:textColorHint="#FFFFFF"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent" />
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+
+            </FrameLayout>
         </LinearLayout>
 
     </LinearLayout>
@@ -255,7 +306,6 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center_horizontal"
-            android:padding="10dp"
             android:text="Loading..."
             android:textColor="#FFFFFF"
             android:textSize="14sp" />
@@ -264,7 +314,7 @@
             android:id="@+id/textView15"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="1"
+            android:layout_weight="1.225"
             android:gravity="center"
             android:text="Loading..."
             android:textColor="#FFFF00"

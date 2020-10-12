@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="req_title" type="id" />
+    <item name="data1" type="id" />
+    <item name="data2" type="id" />
+    <item name="data3" type="id" />
+    <item name="data4" type="id" />
+    <item name="data5" type="id" />
+    <item name="data6" type="id" />
+    <item name="data7" type="id" />
+    <item name="download" type="id" />
+</resources>

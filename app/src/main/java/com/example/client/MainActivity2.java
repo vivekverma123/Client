@@ -87,7 +87,7 @@ public class MainActivity2 extends AppCompatActivity {
                     amt2 += m1.getContr() - m1.getAmt_paid();
 
                     t3.setText("Your Total due as on " + curr_date + ": ");
-                    t5.setText("Your Advanced Amount held with Society as on  " + curr_date + ": ");
+                    t5.setText("Your Remaining Advance Amount as on " + curr_date + ": ");
 
                     t6.setText("₹" + amt1);
                     t4.setText("₹" + amt2);
@@ -194,6 +194,13 @@ public class MainActivity2 extends AppCompatActivity {
             }
         });
 
+        FrameLayout b7 = findViewById(R.id.frame7);
+        b7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainActivity2.this,ViewAllRequests.class));
+            }
+        });
     }
 
     public void showDialogBox1(View view)
