@@ -134,7 +134,10 @@ public class MainActivity2 extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showDialogBox1(view);
+                //showDialogBox1(view);
+                Intent i1 = new Intent(MainActivity2.this,UploadInvoiceActivity.class);
+                i1.putExtra("Type","0");
+                startActivity(i1);
             }
         });
 
@@ -152,13 +155,9 @@ public class MainActivity2 extends AppCompatActivity {
         b3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    showDialogBox2(view);
-                }
-                catch(Exception e1)
-                {
-                    Toast.makeText(MainActivity2.this,e1.toString(),Toast.LENGTH_SHORT).show();
-                }
+                Intent i1 = new Intent(MainActivity2.this,UploadInvoiceActivity.class);
+                i1.putExtra("Type","1");
+                startActivity(i1);
             }
         });
 
@@ -176,6 +175,7 @@ public class MainActivity2 extends AppCompatActivity {
         b5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 startActivity(new Intent(MainActivity2.this,DueActivity.class));
             }
         });

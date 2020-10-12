@@ -103,7 +103,7 @@ public class EditMonth extends AppCompatActivity {
     public void refresh()
     {
         DatabaseReference d1 = FirebaseDatabase.getInstance().getReference();
-        d1.addListenerForSingleValueEvent(new ValueEventListener() {
+        d1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 

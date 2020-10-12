@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -77,6 +78,7 @@ public class DueActivity extends AppCompatActivity {
                 {
                     date = monthName[prev_month] + " " + arr[prev_month] + ", " + prev_year;
                 }
+
                 TextView t1 = findViewById(R.id.statement);
                 int amt = snapshot.child("TotalDue").child(FlatInfo.flatNo).getValue(Integer.class);
                 t1.setText("Total amount due in the society account for your Flat Number " + FlatInfo.flatNo + " till " + date + " is ₹ " + amt );
@@ -93,7 +95,9 @@ public class DueActivity extends AppCompatActivity {
         b1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showDialogBox1(v);
+                Intent i1 = new Intent(DueActivity.this,UploadInvoiceActivity.class);
+                i1.putExtra("Type","2");
+                startActivity(i1);
             }
         });
     }
