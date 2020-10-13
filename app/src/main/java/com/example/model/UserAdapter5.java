@@ -69,7 +69,7 @@ public class UserAdapter5 extends ArrayAdapter<Transaction>
             t2.setText(particular);
 
             if(position%2==0) {
-                convertView.setBackgroundColor(Color.parseColor("#C0D6E4"));
+                convertView.setBackgroundColor(Color.parseColor("#e1bee7"));
             }
             else
             {

@@ -53,34 +53,34 @@ public class EditMonth extends AppCompatActivity {
             title.setText(m1.getTitle());
 
             TextView amt1 = findViewById(R.id.amt1);
-            amt1.setText(m1.getContr() + "");
+            amt1.setText("₹" +m1.getContr());
 
             TextView amt2 = findViewById(R.id.amt2);
-            amt2.setText(m1.getAmtOb() + "");
+            amt2.setText("₹" +m1.getAmtOb());
 
             TextView amt3 = findViewById(R.id.amt3);
-            amt3.setText(m1.getElectricity() + "");
+            amt3.setText("₹" +m1.getElectricity());
 
             TextView amt4 = findViewById(R.id.amt4);
-            amt4.setText(m1.getGarbageCollection() + "");
+            amt4.setText("₹" +m1.getGarbageCollection());
 
             TextView amt5 = findViewById(R.id.amt5);
-            amt5.setText(m1.getGardener() + "");
+            amt5.setText("₹" +m1.getGardener());
 
             TextView amt6 = findViewById(R.id.amt6);
-            amt6.setText(m1.getSecurity() + "");
+            amt6.setText("₹" +m1.getSecurity());
 
             TextView amt7 = findViewById(R.id.amt7);
-            amt7.setText(m1.getSweeper() + "");
+            amt7.setText("₹" +m1.getSweeper());
 
             TextView amt8 = findViewById(R.id.amt8);
-            amt8.setText(m1.getOther() + "");
+            amt8.setText("₹" +m1.getOther());
 
             TextView desc = findViewById(R.id.description1);
             desc.setText(m1.getDescription());
 
             TextView amt9 = findViewById(R.id.amt9);
-            amt9.setText(m1.getTotExp() + "");
+            amt9.setText("₹" +m1.getTotExp());
         }
         catch(Exception e1)
         {

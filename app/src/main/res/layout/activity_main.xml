@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/welcome"
     tools:context=".MainActivity">
 
     <EditText
         android:id="@+id/flatno"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:background="@drawable/round_shape"
         android:ems="10"
         android:hint="Flat Number (G1, F1, S1, T1, etc)"
         android:inputType="textPersonName"
@@ -23,7 +25,8 @@
     <EditText
         android:id="@+id/mobno"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="30dp"
+        android:background="@drawable/round_shape"
         android:ems="10"
         android:hint="Mobile Number"
         android:inputType="textPersonName"
@@ -38,6 +41,7 @@
         android:id="@+id/login"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/round_shape"
         android:text="Login"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

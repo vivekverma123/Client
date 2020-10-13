@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/dollars"
     tools:context=".MainActivity2">
 
     <LinearLayout
@@ -27,7 +28,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_border">
+                android:background="@drawable/round_shape">
 
                 <ImageView
 
@@ -58,7 +59,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_border">
+                android:background="@drawable/round_shape">
 
                 <ImageView
 
@@ -89,7 +90,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_border">
+                android:background="@drawable/round_shape">
 
                 <ImageView
 
@@ -128,7 +129,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_border">
+                android:background="@drawable/round_shape">
 
                 <ImageView
 
@@ -159,7 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_border">
+                android:background="@drawable/round_shape">
 
                 <ImageView
 
@@ -190,7 +191,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:background="@drawable/button_border">
+                android:background="@drawable/round_shape">
 
                 <ImageView
 
@@ -229,7 +230,8 @@
                 android:id="@+id/frame7"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="1">
+                android:layout_weight="1"
+                android:background="@drawable/round_shape">
 
                 <ImageView
 

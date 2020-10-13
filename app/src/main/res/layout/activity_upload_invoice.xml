@@ -4,12 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/pay"
     tools:context=".UploadInvoiceActivity">
 
     <EditText
         android:id="@+id/amt_1"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/round_shape"
         android:ems="10"
         android:hint="Amount (₹)"
         android:inputType="textPersonName"
@@ -25,6 +27,7 @@
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_margin="10dp"
+        android:background="@drawable/round_shape"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -39,6 +42,7 @@
         android:id="@+id/choose"
         android:layout_width="80dp"
         android:layout_height="40dp"
+        android:background="@drawable/round_shape"
         android:text="Choose"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -51,6 +55,7 @@
         android:id="@+id/upload"
         android:layout_width="80dp"
         android:layout_height="40dp"
+        android:background="@drawable/round_shape"
         android:text="Submit"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +67,8 @@
     <EditText
         android:id="@+id/remark_client"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
+        android:background="@drawable/round_shape"
         android:ems="10"
         android:hint="enter remark (if any)"
         android:inputType="textPersonName"
@@ -71,5 +77,5 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amt_1"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.026" />
 </androidx.constraintlayout.widget.ConstraintLayout>
