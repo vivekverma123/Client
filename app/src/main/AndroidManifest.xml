@@ -7,11 +7,12 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@drawable/ic_launcher_background"
+        android:label="Client"
+        android:roundIcon="@drawable/advance_payment"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        android:largeHeap="true"
         <activity android:name=".ViewInvoice"></activity>
         <activity android:name=".RequestDetails" />
         <activity android:name=".ViewAllRequests" />
