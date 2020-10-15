@@ -12,7 +12,7 @@
   2. Advance Payments
   3. Clearance of previous dues.
 
-### Flat owners can also details about society pertaining spendings, regulary updated by the admin (or accountant).
+### Flat owners can also view details pertaining society spendings which are regulary updated by the admin (or accountant).
   
   <p align="center">
   <img src="https://github.com/vivekverma123/TouchAcc-Client/blob/master/Screenshots/1.jpg" width="200">
