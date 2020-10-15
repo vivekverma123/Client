@@ -7,11 +7,12 @@
 4. Constraint Layout 
 5. Firebase Database
 
-### Client Application designed for flat oweners of the housing society where they update the admin about their payments to the society like :-
+### Client Application designed for flat oweners of the housing society where they update the admin about their payments to the society concerning :-
   1. Monthly Maintenance
   2. Advance Payments
   3. Clearance of previous dues.
-  4. View details about society spendings regulary updated by the admin (or accountant).
+
+### Flat owners can also details about society pertaining spendings, regulary updated by the admin (or accountant).
   
   <p align="center">
   <img src="https://github.com/vivekverma123/TouchAcc-Client/blob/master/Screenshots/1.jpg" width="200">
