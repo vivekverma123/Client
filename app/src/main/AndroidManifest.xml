@@ -8,7 +8,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher_background"
-        android:label="Client"
+        android:label="TouchAcc-Client"
         android:roundIcon="@drawable/advance_payment"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
