@@ -6,3 +6,5 @@ Client Application designed for flat oweners of the housing society where they u
   3. Clearance of previous dues.
   4. View details about society spendings regulary updated by the admin (or accountant).
   
+Tech Stack Used: Android Studio, Java, XML, Constraint Layout, Firebase Database
+  
